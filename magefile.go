@@ -37,23 +37,3 @@ func InstallDevTools() error {
 	}
 	return nil
 }
-
-/*=======================
-workflow
-=======================*/
-
-func DockerLogin() error {
-	return gbt.DockerLogin()
-}
-
-func DockerBuildLatest() error {
-	return gbt.DockerBuildLatest(imageRegistry, repository, dockerFileLocation)
-}
-
-func DockerPublishLatest() error {
-	return gbt.DockerPublishLatest(imageRegistry, repository)
-}
-
-func DockerBuildPublishWithGenTag() error {
-	return gbt.DockerBuildPublishGeneratedImageTag(imageRegistry, repository, dockerFileLocation)
-}
