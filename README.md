@@ -105,3 +105,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [gofeed](https://github.com/mmcdole/gofeed) for RSS parsing
 - [OpenAI](https://openai.com/) for AI-powered translation
 - [Bluesky](https://bsky.social/) for social media integration
+a
