@@ -7,15 +7,6 @@ import (
 	"testing"
 )
 
-// Test helper to create a test client
-func createTestClient(t *testing.T) *Client {
-	t.Helper()
-	logger := slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{
-		Level: slog.LevelError, // Reduce log noise during tests
-	}))
-	return NewClient(context.Background(), "test-api-key", logger)
-}
-
 func TestNewClient(t *testing.T) {
 	tests := []struct {
 		name   string

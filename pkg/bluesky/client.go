@@ -81,11 +81,11 @@ func (c *Client) Login(ctx context.Context, identifier, password string) error {
 	if err != nil {
 		return fmt.Errorf("failed to login to Bluesky: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode != http.StatusOK {
 		body, _ := io.ReadAll(resp.Body)
-		return fmt.Errorf("Bluesky login error (status: %d): %s", resp.StatusCode, string(body))
+		return fmt.Errorf("bluesky login error (status: %d): %s", resp.StatusCode, string(body))
 	}
 
 	var session Session
@@ -137,11 +137,11 @@ func (c *Client) CreatePost(ctx context.Context, text string) error {
 	if err != nil {
 		return fmt.Errorf("failed to post to Bluesky: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 
 	if resp.StatusCode != http.StatusOK {
 		body, _ := io.ReadAll(resp.Body)
-		return fmt.Errorf("Bluesky API error (status: %d): %s", resp.StatusCode, string(body))
+		return fmt.Errorf("bluesky API error (status: %d): %s", resp.StatusCode, string(body))
 	}
 
 	c.logger.InfoContext(ctx, "Posted to Bluesky successfully")

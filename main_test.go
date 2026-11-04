@@ -239,18 +239,18 @@ func TestLoadConfig(t *testing.T) {
 			},
 			wantErr: false,
 			setup: func() {
-				os.Setenv("OPENAI_API_KEY", "test-openai-key")
-				os.Setenv("BLUESKY_IDENTIFIER", "test@example.com")
-				os.Setenv("BLUESKY_PASSWORD", "test-password")
-				os.Setenv("MAX_ARTICLES_PER_RUN", "15")
-				os.Setenv("DATA_DIR", "/tmp/test")
+				_ = os.Setenv("OPENAI_API_KEY", "test-openai-key")
+				_ = os.Setenv("BLUESKY_IDENTIFIER", "test@example.com")
+				_ = os.Setenv("BLUESKY_PASSWORD", "test-password")
+				_ = os.Setenv("MAX_ARTICLES_PER_RUN", "15")
+				_ = os.Setenv("DATA_DIR", "/tmp/test")
 			},
 			cleanup: func() {
-				os.Unsetenv("OPENAI_API_KEY")
-				os.Unsetenv("BLUESKY_IDENTIFIER")
-				os.Unsetenv("BLUESKY_PASSWORD")
-				os.Unsetenv("MAX_ARTICLES_PER_RUN")
-				os.Unsetenv("DATA_DIR")
+				_ = os.Unsetenv("OPENAI_API_KEY")
+				_ = os.Unsetenv("BLUESKY_IDENTIFIER")
+				_ = os.Unsetenv("BLUESKY_PASSWORD")
+				_ = os.Unsetenv("MAX_ARTICLES_PER_RUN")
+				_ = os.Unsetenv("DATA_DIR")
 			},
 		},
 		{
